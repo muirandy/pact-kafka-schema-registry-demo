@@ -57,8 +57,8 @@ class ConsumerTest {
     }
 
     private ConsumerDomainRecord useProductionCodeToDeserializeKafkaBytesToDomain(byte[] kafkaBytes) {
-        Deserializer<ConsumerDomainRecord> serializer = getProductionKafkaDeserializer();
-        return serializer.deserialize("", kafkaBytes);
+        Deserializer<ConsumerDomainRecord> deserializer = getProductionKafkaDeserializer();
+        return deserializer.deserialize("", kafkaBytes);
     }
 
     private Deserializer<ConsumerDomainRecord> getProductionKafkaDeserializer() {
