@@ -9,6 +9,9 @@ import au.com.dius.pact.core.model.PactSpecVersion;
 import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.core.model.messaging.Message;
 import au.com.dius.pact.core.model.messaging.MessagePact;
+import io.confluent.kafka.serializers.KafkaJsonDeserializer;
+import io.confluent.kafka.serializers.KafkaJsonDeserializerConfig;
+import org.apache.kafka.common.serialization.Deserializer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -47,6 +50,23 @@ class ConsumerTest {
     }
 
     private void expectApplicationToConsumeKafkaBytesSuccessfully(byte[] kafkaBytes) {
+        ConsumerDomainRecord consumerDomainRecord = useProductionCodeToDeserializeKafkaBytesToDomain(kafkaBytes);
 
+        ProductionCode productionCode = new ProductionCode();
+        productionCode.handle(consumerDomainRecord);
+    }
+
+    private ConsumerDomainRecord useProductionCodeToDeserializeKafkaBytesToDomain(byte[] kafkaBytes) {
+        Deserializer<ConsumerDomainRecord> serializer = getProductionKafkaDeserializer();
+        return serializer.deserialize("", kafkaBytes);
+    }
+
+    private Deserializer<ConsumerDomainRecord> getProductionKafkaDeserializer() {
+        KafkaJsonDeserializer<ConsumerDomainRecord> domainRecordKafkaJsonDeserializer = new KafkaJsonDeserializer<>();
+        Map<String, Object> props = Map.of(
+                KafkaJsonDeserializerConfig.JSON_VALUE_TYPE, ConsumerDomainRecord.class.getName()
+        );
+        domainRecordKafkaJsonDeserializer.configure(props, false);
+        return domainRecordKafkaJsonDeserializer;
     }
 }

@@ -13,6 +13,19 @@
         <maven.compiler.source>1.17</maven.compiler.source>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <name>Confluent</name>
+            <url>https://jenkins-confluent-packages-beta-maven.s3.amazonaws.com/6.2.0-beta210310224144-cp8/1/maven/</url>
+        </repository>
+        <repository>
+            <id>confluent2</id>
+            <name>Confluent 2</name>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -58,6 +71,12 @@
             <groupId>au.com.dius.pact</groupId>
             <artifactId>consumer</artifactId>
             <version>4.3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-json-schema-serializer</artifactId>
+            <version>7.0.0</version>
         </dependency>
     </dependencies>
     <build>
