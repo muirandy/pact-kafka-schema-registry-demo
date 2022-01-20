@@ -1,0 +1,39 @@
+{
+  "consumer": {
+    "name": "jsonKafkaConsumerApp"
+  },
+  "messages": [
+    {
+      "contents": {
+        "name": "almost-anything"
+      },
+      "description": "A simple message",
+      "matchingRules": {
+        "body": {
+          "$.name": {
+            "combine": "AND",
+            "matchers": [
+              {
+                "match": "type"
+              }
+            ]
+          }
+        }
+      },
+      "metaData": {
+        "contentType": "application/json"
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.3.4"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "jsonKafkaProviderApp"
+  }
+}

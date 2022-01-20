@@ -15,10 +15,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Map;
 
-@Provider("demoProviderApp")
-@Consumer("demoConsumerApp")
+@Provider("jsonKafkaProviderApp")
+@Consumer("jsonKafkaConsumerApp")
 @PactFolder("pacts")
-class ProviderTest {
+class JsonKafkaProviderTest {
 
     private static final String JSON_CONTENT_TYPE = "application/json";
     private static final String KEY_CONTENT_TYPE = "contentType";
