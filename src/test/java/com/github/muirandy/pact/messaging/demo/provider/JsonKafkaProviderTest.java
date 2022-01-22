@@ -7,7 +7,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
-import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import io.confluent.kafka.serializers.KafkaJsonSerializer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Provider("jsonKafkaProviderApp")
 @Consumer("jsonKafkaConsumerApp")
-@PactFolder("pacts")
+@PactBroker(url = "http://localhost:9292")
 class JsonKafkaProviderTest {
 
     private static final String JSON_CONTENT_TYPE = "application/json";

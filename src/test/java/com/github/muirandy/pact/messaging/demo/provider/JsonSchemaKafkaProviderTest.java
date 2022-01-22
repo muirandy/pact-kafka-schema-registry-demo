@@ -7,7 +7,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
-import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer;
@@ -20,7 +20,7 @@ import java.util.Map;
 
 @Provider("jsonSchemaKafkaProviderApp")
 @Consumer("jsonSchemaKafkaConsumerApp")
-@PactFolder("pacts")
+@PactBroker(url = "http://localhost:9292")
 class JsonSchemaKafkaProviderTest {
 
     private static final String SCHEMA_REGISTRY_JSON_CONTENT_TYPE = "application/vnd.schemaregistry.v1+json";
