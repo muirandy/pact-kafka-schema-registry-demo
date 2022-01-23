@@ -1,4 +1,4 @@
-package com.github.muirandy.pact.messaging.demo.consumer;
+package com.github.muirandy.pact.messaging.demo.consumer.kafka;
 
 import au.com.dius.pact.consumer.MessagePactBuilder;
 import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
@@ -9,6 +9,8 @@ import au.com.dius.pact.core.model.PactSpecVersion;
 import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.core.model.messaging.Message;
 import au.com.dius.pact.core.model.messaging.MessagePact;
+import com.github.muirandy.pact.messaging.demo.consumer.ConsumerDomainRecord;
+import com.github.muirandy.pact.messaging.demo.consumer.ProductionCode;
 import io.confluent.kafka.serializers.KafkaJsonDeserializer;
 import io.confluent.kafka.serializers.KafkaJsonDeserializerConfig;
 import org.apache.kafka.common.serialization.Deserializer;

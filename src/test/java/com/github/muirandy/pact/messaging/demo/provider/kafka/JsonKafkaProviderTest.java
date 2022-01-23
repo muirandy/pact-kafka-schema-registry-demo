@@ -1,4 +1,4 @@
-package com.github.muirandy.pact.messaging.demo.provider;
+package com.github.muirandy.pact.messaging.demo.provider.kafka;
 
 import au.com.dius.pact.provider.MessageAndMetadata;
 import au.com.dius.pact.provider.PactVerifyProvider;
@@ -8,6 +8,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvide
 import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import com.github.muirandy.pact.messaging.demo.provider.ProviderDomainRecord;
 import io.confluent.kafka.serializers.KafkaJsonSerializer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;

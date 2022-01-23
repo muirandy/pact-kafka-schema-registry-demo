@@ -1,4 +1,4 @@
-package com.github.muirandy.pact.messaging.demo.provider;
+package com.github.muirandy.pact.messaging.demo.provider.kafka;
 
 import au.com.dius.pact.provider.MessageAndMetadata;
 import au.com.dius.pact.provider.PactVerifyProvider;
@@ -8,6 +8,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvide
 import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import com.github.muirandy.pact.messaging.demo.provider.ProviderDomainRecord;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer;
@@ -18,10 +19,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Map;
 
-@Provider("failingJsonSchemaKafkaProviderApp")
-@Consumer("failingJsonKafkaConsumerApp")
+@Provider("jsonSchemaKafkaProviderApp")
+@Consumer("jsonSchemaKafkaConsumerApp")
 @PactBroker(url = "http://localhost:9292")
-class FailingJsonSchemaKafkaProviderTest {
+class JsonSchemaKafkaProviderTest {
 
     private static final String SCHEMA_REGISTRY_JSON_CONTENT_TYPE = "application/vnd.schemaregistry.v1+json";
     private static final String KEY_CONTENT_TYPE = "contentType";
@@ -39,13 +40,7 @@ class FailingJsonSchemaKafkaProviderTest {
         context.verifyInteraction();
     }
 
-    /*
-     * This test is intended to fail.
-     * The consumer (which defines the PACT) expects a JSON message.
-     * This producer will produce a Kafka Schema Registry Compliant JSON message.
-     * Whats the difference? 5 "magic" bytes, which schema registry messages have before the JSON begins.
-     */
-    @PactVerifyProvider("A simple json message but will fail")
+    @PactVerifyProvider("A json schema message")
     MessageAndMetadata verifyJsonSchemaMessageEvent() {
         Map<String, Object> metadata = Map.of(
           KEY_CONTENT_TYPE, SCHEMA_REGISTRY_JSON_CONTENT_TYPE

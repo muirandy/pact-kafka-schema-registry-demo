@@ -1,4 +1,4 @@
-package com.github.muirandy.pact.messaging.demo.consumer;
+package com.github.muirandy.pact.messaging.demo.consumer.kafka;
 
 import au.com.dius.pact.consumer.MessagePactBuilder;
 import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
@@ -11,6 +11,8 @@ import au.com.dius.pact.core.model.messaging.Message;
 import au.com.dius.pact.core.model.messaging.MessagePact;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.muirandy.pact.messaging.demo.consumer.ConsumerDomainRecord;
+import com.github.muirandy.pact.messaging.demo.consumer.ProductionCode;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import io.confluent.kafka.schemaregistry.json.JsonSchema;
