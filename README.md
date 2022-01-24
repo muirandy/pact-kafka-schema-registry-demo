@@ -16,4 +16,9 @@ mvn pact:publish
 ```
 
 ## Run the provider tests from the IDE
-Note: They will read the PACTs from the broker
+Note: They will read the PACTs from the broker but not publish their results to it
+
+## Run the provider tests from maven:
+```
+mvn verify -Dpact.verifier.publishResults=true
+```

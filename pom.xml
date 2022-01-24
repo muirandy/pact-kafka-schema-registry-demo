@@ -103,9 +103,9 @@
                         <include>**/*Should.java</include>
                         <include>**/*Test.java</include>
                     </includes>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>au.com.dius.pact.provider</groupId>
                 <artifactId>maven</artifactId>
