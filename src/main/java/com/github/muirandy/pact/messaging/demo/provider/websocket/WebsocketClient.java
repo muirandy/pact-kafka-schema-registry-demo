@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 
 public class WebsocketClient {
     private ClientManager manager;
-    protected Session session;
+    public Session session;
 
     public void connect(URI uri) {
         this.manager = ClientManager.createClient();
