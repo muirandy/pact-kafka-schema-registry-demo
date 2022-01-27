@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.nio.ByteBuffer;
 
-public class WebsocketEndpoint {
+public class WebsocketClient {
     private ClientManager manager;
     protected Session session;
 

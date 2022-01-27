@@ -11,7 +11,6 @@ import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import com.github.muirandy.pact.messaging.demo.provider.ProviderDomainRecord;
 import jakarta.websocket.RemoteEndpoint;
 import jakarta.websocket.Session;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,10 +55,10 @@ class websocketJsonProviderTest {
     }
 
     private byte[] callProductionCode(ProviderDomainRecord providerDomainRecord) {
-        WebsocketEndpoint websocketEndpoint = new WebsocketEndpoint();
-        websocketEndpoint.session = configureMockSession();
+        WebsocketClient websocketClient = new WebsocketClient();
+        websocketClient.session = configureMockSession();
 
-        websocketEndpoint.send(providerDomainRecord);
+        websocketClient.send(providerDomainRecord);
 
         return tryGetBytesBeingSentOnWebsocket();
     }
