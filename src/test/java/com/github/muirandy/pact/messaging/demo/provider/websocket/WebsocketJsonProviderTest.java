@@ -27,7 +27,7 @@ import static org.mockito.Mockito.when;
 @Provider("websocketJsonProviderApp")
 @Consumer("websocketJsonConsumerApp")
 @PactBroker(url = "http://localhost:9292")
-class websocketJsonProviderTest {
+class WebsocketJsonProviderTest {
 
     private static final String JSON_CONTENT_TYPE = "application/json";
     private static final String KEY_CONTENT_TYPE = "contentType";
