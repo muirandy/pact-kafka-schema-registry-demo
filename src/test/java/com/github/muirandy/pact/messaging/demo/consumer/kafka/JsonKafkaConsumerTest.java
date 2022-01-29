@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @PactTestFor(providerName = "jsonKafkaProviderApp", providerType = ProviderType.ASYNCH, pactVersion = PactSpecVersion.V3)
 class JsonKafkaConsumerTest {
 
-    @Pact(consumer = "jsonKafkaConsumerApp", provider = "jsonKafkaProviderApp")
+    @Pact(consumer = "jsonKafkaConsumerApp")
     MessagePact simpleJsonPact(MessagePactBuilder builder) {
         PactDslJsonBody body = new PactDslJsonBody();
         body.stringType("name", "almost-anything");

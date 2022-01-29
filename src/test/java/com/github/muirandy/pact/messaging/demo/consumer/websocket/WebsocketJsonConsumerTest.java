@@ -21,7 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(PactConsumerTestExt.class)
 @PactTestFor(providerName = "websocketJsonProviderApp", providerType = ProviderType.ASYNCH, pactVersion = PactSpecVersion.V3)
 class WebsocketJsonConsumerTest {
-    @Pact(consumer = "websocketJsonConsumerApp", provider = "websocketJsonProviderApp")
+
+    @Pact(consumer = "websocketJsonConsumerApp")
     MessagePact websocketJsonConsumerPact(MessagePactBuilder builder) {
         PactDslJsonBody body = new PactDslJsonBody();
         body.stringType("name", "websocket-json-almost-anything");

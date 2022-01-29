@@ -42,7 +42,7 @@ class JsonSchemaKafkaConsumerTest {
 
     private MockSchemaRegistryClient schemaRegistryClient = new MockSchemaRegistryClient();
 
-    @Pact(consumer = "jsonSchemaKafkaConsumerApp", provider = "jsonSchemaKafkaProviderApp")
+    @Pact(consumer = "jsonSchemaKafkaConsumerApp")
     MessagePact schemaJsonPact(MessagePactBuilder builder) {
         PactDslJsonBody body = new PactDslJsonBody();
         body.stringType("name", "almost-anything2");

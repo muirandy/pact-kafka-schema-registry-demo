@@ -25,7 +25,7 @@ This will publish the provider test results to the broker:
 ```
 mvn verify -Dpact.verifier.publishResults=true
 ```
-(note the green and red fields)
+(note the green and red fields on the broker)
 
 # The tests
 These tests demonstrate how PACT deals with "messaging", as opposed to the more

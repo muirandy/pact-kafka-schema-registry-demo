@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @PactTestFor(providerName = "mismatchedProviderApp", providerType = ProviderType.ASYNCH, pactVersion = PactSpecVersion.V3)
 class MismatchedConsumerTest {
 
-    @Pact(consumer = "mismatchedConsumerApp", provider = "mismatchedProviderApp")
+    @Pact(consumer = "mismatchedConsumerApp")
     MessagePact mismatchedPact(MessagePactBuilder builder) {
         PactDslJsonBody body = new PactDslJsonBody();
         body.stringType("name", "mismatched");
